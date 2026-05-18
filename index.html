@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<!--
+  index.html — Portfolio Structure (HTML)
+  ----------------------------------------
+  This file contains only the structure (markup) of the website.
+  Styling is handled by css/style.css
+  Behaviour is handled by js/main.js
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Makes the page scale correctly on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thabiso Tapala | Portfolio</title>
+    <!-- Link to the external stylesheet (separation of concern) -->
+    <link rel="stylesheet" href="/public/css/style.css" />
+  </head>
+  <body>
+
+    <!-- ══════════════════════════════════════
+         NAVIGATION
+         Logo on the left; page links on the right.
+         ══════════════════════════════════════ -->
+    <nav>
+      <!-- Logo image -->
+      <div class="logo">
+        <img src="/public/images/hac 7.jpeg" alt="Logo" />
+      </div>
+
+      <!-- Navigation links -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About me</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+
+    <!-- ══════════════════════════════════════
+         HOME PAGE
+         ══════════════════════════════════════ -->
+    <section id="home" class="page">
+
+      <!-- Hero banner: autoplay video with no sound (muted) and looping -->
+      <div class="hero">
+        <video autoplay muted loop playsinline>
+          <source src="public/video/First Year Highlights.mp4" type="video/mp4" />
+          <!-- Fallback message for browsers that cannot play video -->
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <!-- Bio section: name + paragraphs on the left, circular photo on the right -->
+      <!-- id="about" makes this the target for the "About me" nav link -->
+      <div id="about" class="bio-section">
+
+        <!-- Left column: name and bio text -->
+        <div class="bio-text">
+          <h2>Thabiso Tapala</h2>
+          <p>
+            I'm a <strong>Computer Science graduate</strong> from Tshwane University of
+            Technology with hands-on experience building secure, scalable web applications using
+            Java (Spring Boot), React, and PostgreSQL.
+          </p>
+          <p>
+            My expertise spans REST API design, authentication &amp; authorization (JWT, OAuth2),
+            cloud deployment, and AI integration using OpenAI and Tribuo. I've successfully
+            developed and deployed real-world platforms including tutor management systems,
+            freelancer platforms, and AI-powered applications.
+          </p>
+          <p>
+            I thrive in collaborative environments, have led full-stack development as a Tech Lead,
+            and am passionate about building reliable production systems that make a real difference.
+          </p>
+        </div>
+
+        <!-- Right column: circular profile photo -->
+        <div class="bio-image">
+          <img src="public/images/tap 1.jpeg" alt="Thabiso Tapala" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         FOOTER
+         Three columns:
+           1. Address + social icon buttons (T, F, I)
+           2. Quick navigation links
+           3. Embedded Google Maps iframe
+         ══════════════════════════════════════ -->
+    <!-- id="contact" makes the footer the target for the "Contact Us" nav link -->
+    <footer id="contact">
+
+      <!-- Column 1: physical address and social media icon buttons -->
+      <div class="footer-address">
+        <p>Address Here</p>
+        <p>ZONE 5, SECTION H, 2469</p>
+        <p>Seshego, Polokwane, 0742</p>
+        <p>Tel: 063 816 5250</p>
+
+        <!-- Social icon buttons: T = TikTok, F = Facebook, I = Instagram -->
+        <div class="footer-social">
+          <a class="social-btn" href="https://www.tiktok.com/@thabisotapala" target="_blank" title="TikTok">T</a>
+          <a class="social-btn" href="https://www.facebook.com/tapala.thabiso.5/" target="_blank" title="Facebook">F</a>
+          <a class="social-btn" href="https://www.instagram.com/thabisotapala/" target="_blank" title="Instagram">I</a>
+        </div>
+      </div>
+
+      <!-- Column 2: quick navigation links repeated in the footer -->
+      <div class="footer-links">
+        <p>Additional quick links</p>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About me</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          <li><a href="https://thabiso.portfolio.likestem.com/" target="_blank">Portfolio</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: embedded Google Maps showing the address location -->
+      <div class="footer-map">
+        <iframe
+          src="https://maps.google.com/maps?q=-23.8392,29.3618&z=15&output=embed"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Location map">
+        </iframe>
+      </div>
+
+    </footer>
+
+    <!-- Link to the external JavaScript file (separation of concern) -->
+    <script src="/public/js/main.js"></script>
+  </body>
+</html>

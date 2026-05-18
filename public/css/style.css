@@ -1,0 +1,422 @@
+/*
+  style.css — Portfolio Stylesheet
+  ----------------------------------
+  All visual styling for the portfolio is kept here.
+  The HTML file (index.html) handles structure.
+
+  Sections in this file:
+  1. Reset / Base 
+  2. Navigation
+  3. Page visibility
+  4. Hero banner
+  5. Bio section
+  6. Footer
+  7. About page
+  8. Contact page
+*/
+
+/* ══════════════════════════════════════
+   1. RESET / BASE
+   Removes default browser margin/padding
+   and sets a consistent box model so that
+   padding and border are included in widths.
+   ══════════════════════════════════════ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif; /* clean, readable sans-serif font */
+  font-size: 16px;
+  color: #222;                    /* near-black text, easier on the eyes than pure black */
+}
+
+/* ══════════════════════════════════════
+   2. NAVIGATION
+   Horizontal bar at the top of every page.
+   Logo sits on the left; links sit on the right.
+   ══════════════════════════════════════ */
+nav {
+  display: flex;                  /* place logo and links side by side */
+  align-items: center;            /* vertically centre both items */
+  justify-content: space-between; /* push logo to left edge, links to right edge */
+  padding: 12px 24px;
+  border-bottom: 1px solid #ddd; /* thin line separating nav from page content */
+}
+
+/* Logo image inside the nav */
+.logo img {
+  height: 50px;
+  width: 100px;
+  object-fit: cover;    /* crop the image to fill the box without stretching */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* The <ul> that holds the nav links */
+.nav-links {
+  list-style: none;   /* remove bullet points */
+  display: flex;      /* lay links out horizontally */
+  gap: 32px;          /* space between each link */
+}
+
+/* Individual nav link styling */
+.nav-links a {
+  text-decoration: none; /* remove default underline */
+  color: #222;
+  font-size: 15px;
+}
+
+/* Underline appears only on hover, giving visual feedback */
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* ══════════════════════════════════════
+   3. SECTIONS
+   All sections are visible and stacked.
+   Nav links use anchor IDs (href="#id")
+   to jump to each section.
+   ══════════════════════════════════════ */
+.page {
+  display: block;
+}
+
+/* ══════════════════════════════════════
+   4. HERO BANNER
+   Large video/image banner at the top of
+   the Home page, matching the wireframe.
+   ══════════════════════════════════════ */
+.hero {
+  border: 1px solid #ccc;
+  margin: 16px;
+  height: 380px;
+  overflow: hidden;       /* hide any part of the video that goes outside the box */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f5f5f5;   /* fallback colour while the video loads */
+}
+
+/* Make video/image fill the hero box completely */
+.hero video,
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* fill without distorting the aspect ratio */
+}
+
+/* ══════════════════════════════════════
+   5. BIO SECTION
+   Two-column layout: text on the left,
+   circular profile photo on the right.
+   ══════════════════════════════════════ */
+.bio-section {
+  display: flex;                  /* side-by-side columns */
+  align-items: flex-start;        /* align content to the top of each column */
+  justify-content: space-between;
+  padding: 32px 40px;
+  border: 1px solid #ccc;
+  margin: 0 16px 16px;
+  gap: 32px;                      /* breathing room between text and photo */
+}
+
+/* Text column grows to fill available space */
+.bio-text {
+  flex: 1;
+}
+
+/* Name heading */
+.bio-text h2 {
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+/* Bio paragraphs */
+.bio-text p {
+  margin-bottom: 14px;
+  line-height: 1.6; /* extra line spacing improves readability */
+  font-size: 14px;
+}
+
+.bio-text p strong {
+  font-weight: bold;
+}
+
+/* Photo column — fixed width, does not shrink */
+.bio-image {
+  flex-shrink: 0;
+}
+
+/* Circular profile photo */
+.bio-image img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%; /* turns the square image into a circle */
+  object-fit: cover;
+  border: 1px solid #ccc;
+}
+
+/* ══════════════════════════════════════
+   6. FOOTER
+   Three columns: address + social icons,
+   quick links, and an embedded map.
+   ══════════════════════════════════════ */
+footer {
+  background: #f5f5f5;
+  border-top: 1px solid #ddd;
+  padding: 20px 40px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap; /* stack columns vertically on small screens */
+}
+
+/* Address text lines */
+.footer-address p {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+/* Row of social icon buttons (T, F, I) */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+/* Each social icon is a circle-shaped link */
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ccc;
+  border-radius: 50%;     /* makes the button a circle */
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #222;
+  background: #fff;
+}
+
+/* Invert colours on hover for a button-press effect */
+.social-btn:hover {
+  background: #222;
+  color: #fff;
+}
+
+/* Quick links column */
+.footer-links {
+  font-size: 13px;
+}
+
+.footer-links p {
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links ul li {
+  margin-bottom: 4px;
+}
+
+.footer-links ul a {
+  text-decoration: none;
+  color: #444;
+  font-size: 13px;
+}
+
+.footer-links ul a:hover {
+  text-decoration: underline;
+}
+
+/* Google Maps iframe container */
+.footer-map iframe {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 220px;
+  height: 120px;
+}
+
+/* ══════════════════════════════════════
+   7. ABOUT PAGE
+   Centred text column with generous
+   line spacing for easy reading.
+   ══════════════════════════════════════ */
+.about-container {
+  max-width: 760px;    /* keeps lines from becoming too wide to read comfortably */
+  margin: 40px auto;   /* auto left/right centres the block horizontally */
+  padding: 0 24px;
+}
+
+.about-container h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+/* ══════════════════════════════════════
+   8. CONTACT PAGE
+   List of contact details with a bold
+   label on the left and a link on the right.
+   ══════════════════════════════════════ */
+.contact-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 0 24px;
+}
+
+.contact-container h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+/* Each row: label + link side by side */
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  font-size: 15px;
+}
+
+.contact-item a {
+  color: #222;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+/* Bold label with a fixed width so all links line up neatly */
+.contact-label {
+  font-weight: bold;
+  min-width: 90px;
+}
+
+/* ══════════════════════════════════════
+   9. RESPONSIVE — TABLET (max 1024px)
+   Two-column layouts remain but get
+   tighter padding and slightly smaller type.
+   ══════════════════════════════════════ */
+@media (max-width: 1024px) {
+
+  /* Reduce hero height slightly on tablet */
+  .hero {
+    height: 300px;
+    margin: 12px;
+  }
+
+  /* Tighten the bio section padding */
+  .bio-section {
+    padding: 24px 24px;
+    margin: 0 12px 12px;
+  }
+
+  /* Shrink the circular photo a little */
+  .bio-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  /* Tighten footer padding */
+  footer {
+    padding: 20px 24px;
+    gap: 20px;
+  }
+
+  /* Shrink the map iframe slightly */
+  .footer-map iframe {
+    width: 180px;
+    height: 110px;
+  }
+}
+
+/* ══════════════════════════════════════
+   10. RESPONSIVE — MOBILE (max 768px)
+   Single-column layouts. Elements that
+   were side-by-side now stack vertically.
+   ══════════════════════════════════════ */
+@media (max-width: 768px) {
+
+  /* Stack logo and nav links vertically */
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+
+  /* Wrap nav links and reduce gap so they fit on small screens */
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  /* Shorter hero on mobile */
+  .hero {
+    height: 220px;
+    margin: 8px;
+  }
+
+  /* Stack bio text and photo vertically, photo moves below text */
+  .bio-section {
+    flex-direction: column;
+    align-items: center;   /* centre the photo when stacked */
+    padding: 20px 16px;
+    margin: 0 8px 8px;
+    gap: 20px;
+  }
+
+  /* Slightly larger photo when it is centred below the text */
+  .bio-image img {
+    width: 160px;
+    height: 160px;
+  }
+
+  .bio-text h2 {
+    font-size: 22px;
+  }
+
+  /* Stack all footer columns vertically */
+  footer {
+    flex-direction: column;
+    padding: 16px;
+    gap: 20px;
+  }
+
+  /* Map fills full width on mobile */
+  .footer-map iframe {
+    width: 100%;
+    height: 160px;
+  }
+
+  /* About page: smaller heading */
+  .about-container h1,
+  .contact-container h1 {
+    font-size: 22px;
+  }
+
+  /* Contact rows: stack label above the link on very small screens */
+  .contact-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
