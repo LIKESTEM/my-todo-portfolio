@@ -311,11 +311,96 @@ footer {
 }
 
 /* ══════════════════════════════════════
-   9. RESPONSIVE — TABLET (max 1024px)
+   9. HAMBURGER BUTTON (CSS-only, no JS)
+   Uses a hidden checkbox + label trick.
+   The checkbox state drives the menu via
+   the adjacent-sibling selector (~).
+   ══════════════════════════════════════ */
+
+/* Hide the actual checkbox visually */
+.nav-toggle {
+  display: none;
+}
+
+.hamburger {
+  display: none;           /* hidden on desktop */
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Each bar of the hamburger icon */
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #222;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* When checkbox is checked: animate top bar into X */
+.nav-toggle:checked ~ .hamburger span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+/* When checkbox is checked: hide middle bar */
+.nav-toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+
+/* When checkbox is checked: animate bottom bar into X */
+.nav-toggle:checked ~ .hamburger span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* ══════════════════════════════════════
+   10. RESPONSIVE — TABLET (max 1024px)
    Two-column layouts remain but get
    tighter padding and slightly smaller type.
    ══════════════════════════════════════ */
 @media (max-width: 1024px) {
+
+  /* Keep logo and hamburger on one row */
+  nav {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    position: relative;
+  }
+
+  /* Show the hamburger button */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Hide nav links by default */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    margin-top: 8px;
+    border-top: 1px solid #ddd;
+  }
+
+  /* Show nav links when checkbox is checked */
+  .nav-toggle:checked ~ .nav-links {
+    display: flex;
+  }
+
+  /* Full-width tap targets for each link */
+  .nav-links li {
+    border-bottom: 1px solid #eee;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 12px 4px;
+    font-size: 15px;
+  }
 
   /* Reduce hero height slightly on tablet */
   .hero {
@@ -349,24 +434,15 @@ footer {
 }
 
 /* ══════════════════════════════════════
-   10. RESPONSIVE — MOBILE (max 768px)
+   11. RESPONSIVE — MOBILE (max 768px)
    Single-column layouts. Elements that
    were side-by-side now stack vertically.
    ══════════════════════════════════════ */
 @media (max-width: 768px) {
 
-  /* Stack logo and nav links vertically */
+  /* Tighter padding on very small screens */
   nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
     padding: 12px 16px;
-  }
-
-  /* Wrap nav links and reduce gap so they fit on small screens */
-  .nav-links {
-    flex-wrap: wrap;
-    gap: 16px;
   }
 
   /* Shorter hero on mobile */
